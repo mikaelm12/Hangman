@@ -1,0 +1,68 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.ace.hangman.app.MainActivity">
+
+    <TextView
+        android:text="@string/welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:id="@+id/textView" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivHangman"
+        android:layout_below="@+id/textView"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_marginTop="51dp"
+        android:layout_marginBottom="10dp"/>
+    <TextView
+        android:layout_below="@+id/ivHangman"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvCorrectGuesses"
+        android:textSize="30dp"/>
+    <TextView
+        android:layout_below="@+id/tvCorrectGuesses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvWrongLetters"
+        android:textSize="15dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="#EC2E2E"/>
+    <TextView
+        android:paddingRight="10dp"
+        android:layout_alignTop="@id/tvWrongLetters"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvLivesLeft"
+        android:textSize="20dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:id="@+id/etGuess"
+        android:layout_alignParentBottom="true"
+        android:hint="Guess a letter"
+       />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Guess!"
+        android:id="@+id/bSubmit"
+        android:layout_above="@+id/etGuess"
+        android:layout_toRightOf="@+id/tvWrongLetters" />
+
+
+
+</RelativeLayout>

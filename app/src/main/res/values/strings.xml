@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Hangman</string>
+    <string name="welcome">Welcome to Hangman! \nDo your best to Survive!</string>
+    <string name="resart">Hold to play again!</string>
+    <string name="action_settings">Settings</string>
+
+</resources>
