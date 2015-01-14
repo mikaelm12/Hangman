@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,8 @@ public class MainActivity extends ActionBarActivity {
     EditText guessInput;
     TextView current;
     TextView wrongGuesses;
+    TextView mainMessage;
+    ImageView hangman;
     Button submit;
     TextView livesLeft;
     int lives = 5;
@@ -35,7 +38,8 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
 
-
+        hangman = (ImageView)findViewById(R.id.ivHangman);
+        mainMessage = (TextView)findViewById(R.id.tvMainMessage);
         current = (TextView)findViewById(R.id.tvCorrectGuesses);
         wrongGuesses = (TextView)findViewById(R.id.tvWrongLetters);
         guessInput = (EditText)findViewById(R.id.etGuess);
@@ -65,7 +69,7 @@ public class MainActivity extends ActionBarActivity {
                     if (secretHashSet.contains(charCurrentGuess)) {
                         current.setText(current.getText().toString() + currentGuess);
                         guesses.add(charCurrentGuess);
-                        Toast.makeText(getApplicationContext(), "The words is " + secretWord, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), "The words is " + secretWord, Toast.LENGTH_SHORT).show();
                         currentDisplay(guesses, secretWord);
                     }
                     else {
@@ -83,10 +87,13 @@ public class MainActivity extends ActionBarActivity {
                             }
                         }
                         else{
-                            livesLeft.setText("GAME OVER");
-
+                            mainMessage.setText("GAME OVER");
+                            livesLeft.setText("");
+                            hangman.setImageResource(R.drawable.game_over);
                             guessInput.setEnabled(false);
+                            wrongGuesses.setText("The word was " + secretWord);
                             submit.setText(R.string.resart);
+                            submit.setOnClickListener(null);
                             submit.setOnLongClickListener(new View.OnLongClickListener() {
                                 @Override
                                 public boolean onLongClick(View view) {
